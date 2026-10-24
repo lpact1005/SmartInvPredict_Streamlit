@@ -1,15 +1,26 @@
-# Smart Inventory Forecast - Streamlit Deployment Version
+# Smart Inventory Forecast - Enhanced Streamlit Version
 
-This folder contains an application ready for deployment to **Streamlit Community Cloud** to obtain a public web link.
+This version brings the Streamlit app closer to the original `SmartInvPredict` features while remaining fully deployable on Streamlit Community Cloud.
+
+## Features
+
+- **Home** — Introduction and workflow overview
+- **Forecast** — Full input form (product, stock, unit cost, lead time, season, promotion)
+- **CSV import** for historical sales
+- **Chart** comparing historical sales vs. forecast
+- **Metrics** — change %, total demand, average, peak period, confidence
+- **Smart alerts** — restock / promotion / caution recommendations
+- **History** — session-based list of previous forecasts (view / delete)
+- Uses the original **XGBoost** model (`models/xgb_model.joblib`)
 
 ## File Structure
 
 ```
 SmartInvPredict_Streamlit/
-├── app.py                  # Streamlit main application
-├── requirements.txt        # Python dependencies
+├── app.py
+├── requirements.txt
 └── models/
-    └── xgb_model.joblib    # XGBoost model (required)
+    └── xgb_model.joblib
 ```
 
 ## Local Testing
@@ -20,17 +31,15 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Deploy to Streamlit Cloud (Obtain Public Link)
+## Deploy to Streamlit Cloud
 
-1. Create a **public** GitHub repository and upload all files from this folder.
-2. Go to [https://share.streamlit.io](https://share.streamlit.io) and sign in with your GitHub account.
-3. Click **New app** and select your repository.
-4. Set Main file path to `app.py`.
-5. Click **Deploy**.
-6. After deployment completes, you will receive a public URL such as `https://your-app-name.streamlit.app`.
+1. Upload the folder contents to a **public** GitHub repository.
+2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub.
+3. Create a new app, select the repository, and set Main file path to `app.py`.
+4. Deploy to obtain a public link.
 
 ## Notes
 
-- Prediction logic remains consistent with the original project's `python/ml_server.py`.
-- The interface uses native Streamlit components, suitable for quick sharing and demos.
-- The model file is approximately 2.2 MB and loads normally on Streamlit Cloud.
+- History is stored in the Streamlit session (cleared on restart or new session).
+- Prediction logic matches the original `python/ml_server.py`.
+- Results are for demonstration purposes only.
